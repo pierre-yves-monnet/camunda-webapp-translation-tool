@@ -51,6 +51,8 @@ public class DictionaryCompletion extends Operation {
             }
 
             AppDictionary appDictionary = new AppDictionary(webApplication.translationFolder, language);
+            report.info(AppPilot.class, "  sourceFile [" + referenceDictionary.getFileName()+"]");
+            report.info(AppPilot.class, "  destinationFile [" + appDictionary.getFileName()+"]");
 
 
             //----------------  Read and complete

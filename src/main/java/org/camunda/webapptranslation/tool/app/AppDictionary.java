@@ -167,9 +167,11 @@ public class AppDictionary {
      * @return the file, path + language
      */
     public File getFile() {
-        return new File(folder + File.separator + language + ".json");
+        return new File(getFileName());
     }
-
+public String getFileName() {
+    return folder + File.separator + language + ".json";
+}
     /**
      * Return the language managed by this dictionary
      *

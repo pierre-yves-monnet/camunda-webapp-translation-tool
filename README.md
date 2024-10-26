@@ -44,7 +44,7 @@ java  -jar target/SynchroTranslation.jar REFERENCE_FOLDER TRANSLATION_FODLER OPT
 ``````
 So for example
 ````
-> java  -jar target/SynchroTranslation.jar c:/camunda/camunda-bpm-platform c:/camunda/camunda-webapp-translations OPTILMIZE_DIRECTORY 
+> java  -jar target/SynchroTranslation.jar c:/camunda/camunda-bpm-platform c:/camunda/camunda-webapp-translations OPTIMIZE_DIRECTORY 
  Folder to study: c:\camunda\camunda-webapp-translations
  Reference language: en
  Detection: SYNTHETIC

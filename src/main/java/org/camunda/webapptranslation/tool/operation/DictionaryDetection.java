@@ -3,6 +3,7 @@ package org.camunda.webapptranslation.tool.operation;
 import org.camunda.webapptranslation.tool.SynchroParams;
 import org.camunda.webapptranslation.tool.WebApplication;
 import org.camunda.webapptranslation.tool.app.AppDictionary;
+import org.camunda.webapptranslation.tool.app.AppPilot;
 import org.camunda.webapptranslation.tool.report.ReportInt;
 
 import java.util.ArrayList;
@@ -49,7 +50,9 @@ public class DictionaryDetection extends Operation {
                 report.info(DictionaryDetection.class, headerLanguage(language) + "Referentiel");
                 continue;
             }
+
             AppDictionary dictionary = new AppDictionary(webApplication.translationFolder, language);
+            report.info(AppPilot.class, "  sourceFile [" + dictionary.getFileName()+"]");
             if (!dictionary.existFile()) {
                 report.info(DictionaryDetection.class, headerLanguage(language) + "Not exist (" + referenceDictionary.getDictionary().size() + " missing keys)");
                 continue;
