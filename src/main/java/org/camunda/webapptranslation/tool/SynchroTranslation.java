@@ -130,6 +130,8 @@ public class SynchroTranslation {
         List<WebApplication> listApplications = new ArrayList<>();
         try {
             for (File file : Objects.requireNonNull(synchroParams.getTranslationFolder().listFiles())) {
+                if (file.getName().startsWith("."))
+                    continue;
                 if (file.isDirectory()) {
                     // this is the application level
                     WebApplication application = new WebApplication();
@@ -138,16 +140,14 @@ public class SynchroTranslation {
                     // search if the same file exist on the reference
                     File referenceDictionary = new File(synchroParams.getReferenceFolder()
                             + File.separator + "webapps"
-                            + File.separator + "ui"
+                            + File.separator + "frontend"
+                            + File.separator + "public"
+                            + File.separator + "app"
                             + File.separator + application.applicationName
-                            + File.separator + "client"
+                            + File.separator + "locales"
                             + File.separator + synchroParams.getReferenceLanguage() + ".json");
                     if (referenceDictionary.exists() && referenceDictionary.isFile()) {
-                        application.referenceFolder = new File(synchroParams.getReferenceFolder()
-                                + File.separator + "webapps"
-                                + File.separator + "ui"
-                                + File.separator + application.applicationName
-                                + File.separator + "client");
+                        application.referenceFolder = referenceDictionary.getParentFile();
 
                         listApplications.add(application);
                     }
